@@ -112,9 +112,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
  style: NeumorphicStyle(
+          shadowLightColor: Colors.orange,
+              shadowDarkColor: Colors.orange,
                 shape: NeumorphicShape.flat,
                 boxShape:
                     NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+                       intensity: 20,
                 depth: 2,
 //                lightSource: LightSource.topLeft,
               ),
@@ -137,11 +140,16 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               style: NeumorphicStyle(
-               
+                // color: Colors.green,
+                shadowLightColor: Colors.orange,
+              shadowDarkColor: Colors.orange,
+             //  shadowDarkColorEmboss: Colors.green,
                 shape: NeumorphicShape.flat,
                 boxShape:
                     NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+      intensity: 20,
                 depth: 2,
+               
 //                lightSource: LightSource.topLeft,
               ),
             )
