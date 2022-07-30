@@ -1,7 +1,5 @@
-
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:space_app/screens/pages/splash_page/splash_page.dart';
-
 
 void main() => runApp(const MyApp());
 
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
         lightSource: LightSource.topLeft,
         depth: 10,
       ),
-      darkTheme:const NeumorphicThemeData(
+      darkTheme: const NeumorphicThemeData(
         baseColor: Color(0xFF3E3E3E),
         lightSource: LightSource.topLeft,
         depth: 6,
