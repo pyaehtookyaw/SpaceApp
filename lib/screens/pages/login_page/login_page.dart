@@ -56,29 +56,33 @@ class _LoginPageState extends State<LoginPage> {
             //   size: 100,
             // ),
             const SizedBox(height: 80),
-            NeumorphicText(
-              "Space App",
-              style: NeumorphicStyle(
-                color: Colors.white,
-                shadowLightColor: Colors.orange,
-                // shadowDarkColor: Colors.orange,
-                shape: NeumorphicShape.convex,
-                boxShape:
-                    NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-                intensity: 20,
-                depth: 2,
-//                lightSource: LightSource.topLeft,
-              ),
-              // style: NeumorphicStyle(
-              //   depth: 4, //customize depth here
-              //   color: Colors.white, //customize color here
-              // ),
-              textStyle: NeumorphicTextStyle(
-                fontSize: 30, //customize size here
-                // AND others usual text style properties (fontFamily, fontWeight, ...)
-              ),
-            ),
-            const SizedBox(height: 80),
+            Image(
+                width: 200,
+                height: 200,
+                image: AssetImage('assets/images/SpaceFM_gold2.png')),
+//             NeumorphicText(
+//               "Space App",
+//               style: NeumorphicStyle(
+//                 color: Colors.white,
+//                 shadowLightColor: Colors.orange,
+//                 // shadowDarkColor: Colors.orange,
+//                 shape: NeumorphicShape.convex,
+//                 boxShape:
+//                     NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+//                 intensity: 20,
+//                 depth: 2,
+// //                lightSource: LightSource.topLeft,
+//               ),
+//               // style: NeumorphicStyle(
+//               //   depth: 4, //customize depth here
+//               //   color: Colors.white, //customize color here
+//               // ),
+//               textStyle: NeumorphicTextStyle(
+//                 fontSize: 30, //customize size here
+//                 // AND others usual text style properties (fontFamily, fontWeight, ...)
+//               ),
+//             ),
+            //const SizedBox(height: 80),
             Neumorphic(
               style: NeumorphicStyle(
                 shape: NeumorphicShape.concave,

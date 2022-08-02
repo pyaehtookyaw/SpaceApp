@@ -1,5 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:space_app/screens/pages/home_page/home_page.dart';
+import 'package:space_app/screens/pages/setting_page/setting_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -13,20 +14,12 @@ class _MainPageState extends State<MainPage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    // Text(
-    //   'Index 0: Home',
-    //   style: optionStyle,
-    // ),
     HomePage(),
-
     Text(
       'Index 1: Business',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    SettingPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -39,6 +32,9 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: NeumorphicTheme.of(context)!.isUsingDark
+          ? Color(0xFF3E3E3E)
+          : Color(0xFFFFFFFF),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -76,11 +72,22 @@ class _MainPageState extends State<MainPage> {
             NeumorphicButton(
               child: Icon(
                 Icons.home,
-                color: _selectedIndex == 0 ? Colors.orange : Colors.white,
+                color: _selectedIndex == 0
+                    ? NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.orange
+                        : Colors.green
+                    : NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.white
+                        : Colors.black,
               ),
               style: NeumorphicStyle(
-                shadowLightColor:
-                    _selectedIndex == 0 ? Colors.orange : Colors.white,
+                shadowLightColor: _selectedIndex == 0
+                    ? NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.orange
+                        : Colors.green
+                    : NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.white
+                        : Colors.black,
                 // shadowDarkColor:
                 //     _selectedIndex == 0 ? Colors.orange : Colors.white,
                 shape: NeumorphicShape.flat,
@@ -94,11 +101,22 @@ class _MainPageState extends State<MainPage> {
             NeumorphicButton(
               child: Icon(
                 Icons.music_video,
-                color: _selectedIndex == 1 ? Colors.orange : Colors.white,
+                color: _selectedIndex == 1
+                    ? NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.orange
+                        : Colors.green
+                    : NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.white
+                        : Colors.black,
               ),
               style: NeumorphicStyle(
-                shadowLightColor:
-                    _selectedIndex == 1 ? Colors.orange : Colors.white,
+                shadowLightColor: _selectedIndex == 1
+                    ? NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.orange
+                        : Colors.green
+                    : NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.white
+                        : Colors.black,
                 // shadowDarkColor:
                 //     _selectedIndex == 1 ? Colors.orange : Colors.white,
                 shape: NeumorphicShape.flat,
@@ -112,11 +130,22 @@ class _MainPageState extends State<MainPage> {
             NeumorphicButton(
               child: Icon(
                 Icons.settings,
-                color: _selectedIndex == 2 ? Colors.orange : Colors.white,
+                color: _selectedIndex == 2
+                    ? NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.orange
+                        : Colors.green
+                    : NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.white
+                        : Colors.black,
               ),
               style: NeumorphicStyle(
-                shadowLightColor:
-                    _selectedIndex == 2 ? Colors.orange : Colors.white,
+                shadowLightColor: _selectedIndex == 2
+                    ? NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.orange
+                        : Colors.green
+                    : NeumorphicTheme.of(context)!.isUsingDark
+                        ? Colors.white
+                        : Colors.black,
                 // shadowDarkColor: Colors.orange,
                 shape: NeumorphicShape.flat,
                 boxShape:

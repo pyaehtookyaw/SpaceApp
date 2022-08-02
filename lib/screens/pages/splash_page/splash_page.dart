@@ -1,4 +1,3 @@
-
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:space_app/helpers/shared_pref.dart';
 import 'package:space_app/screens/pages/login_page/login_page.dart';
@@ -22,22 +21,26 @@ class _SplashPageState extends State<SplashPage> {
       //     //   return HomePage();
       //     // }), (route) => false);
       //   } else {
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (BuildContext context) {
-            return LoginPage();
-          }), (route) => false);
-       // }
-     // });
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (BuildContext context) {
+        return LoginPage();
+      }), (route) => false);
+      // }
+      // });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: FlutterLogo(
-          size: 100,
-        ),
+        child: Image(
+            width: 200,
+            height: 200,
+            image: AssetImage('assets/images/SpaceFM_gold2.png')),
+        //  FlutterLogo(
+        //   size: 100,
+        // ),
       ),
     );
   }

@@ -4,14 +4,14 @@ import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class MusicPage extends StatefulWidget {
-  const MusicPage({Key? key}) : super(key: key);
+class ProifilePage extends StatefulWidget {
+  const ProifilePage({Key? key}) : super(key: key);
 
   @override
-  State<MusicPage> createState() => _MusicPageState();
+  State<ProifilePage> createState() => _ProfilePageState();
 }
 
-class _MusicPageState extends State<MusicPage> {
+class _ProfilePageState extends State<ProifilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,7 @@ class _MusicPageState extends State<MusicPage> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Music'),
+        title: const Text('Profile'),
         centerTitle: true,
         actions: [
           NeumorphicButton(
