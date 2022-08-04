@@ -1,8 +1,9 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:space_app/helpers/response_ob.dart';
 import 'package:space_app/screens/pages/main_page/main_page.dart';
 import 'package:space_app/utils/app_utils.dart';
 
-//import 'login_bloc.dart';
+import 'login_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,28 +17,28 @@ class _LoginPageState extends State<LoginPage> {
   var passwordTec = TextEditingController();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  // final _bloc = LoginBloc();
+  final _bloc = LoginBloc();
 
   @override
   void initState() {
     super.initState();
 
-    // _bloc.loginStream().listen((ResponseOb resp) {
-    //   if (resp.message == MsgState.data) {
-    //     Navigator.of(context).pushAndRemoveUntil(
-    //         MaterialPageRoute(builder: (BuildContext context) {
-    //       return HomePage();
-    //     }), (route) => false);
-    //   }
-    //   if (resp.message == MsgState.error) {
-    //     if (resp.errState == ErrState.userErr) {
-    //       AppUtils.showSnackBar(
-    //           resp.data.toString(), _scaffoldKey.currentState);
-    //     } else {
-    //       AppUtils.showSnackBar("Something Wrong!", _scaffoldKey.currentState);
-    //     }
-    //   }
-    // });
+    _bloc.loginStream().listen((ResponseOb resp) {
+      if (resp.message == MsgState.data) {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (BuildContext context) {
+          return MainPage();
+        }), (route) => false);
+      }
+      if (resp.message == MsgState.error) {
+        if (resp.errState == ErrState.userErr) {
+          AppUtils.showSnackBar(
+              resp.data.toString(), _scaffoldKey.currentState);
+        } else {
+          AppUtils.showSnackBar("Something Wrong!", _scaffoldKey.currentState);
+        }
+      }
+    });
   }
 
   @override
@@ -183,11 +184,11 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     Map<String, String> map = {
-      'email': emailTec.text,
+      'username': emailTec.text,
       'password': passwordTec.text,
     };
 
-    // _bloc.login(map);
+    _bloc.login(map);
   }
 
   @override
