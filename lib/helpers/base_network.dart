@@ -12,9 +12,9 @@ class BaseNetwork {
       Function? errorCallBack}) async {
     requestData(RequestType.Get,
         url: url,
-        params: params!,
-        onDataCallBack: onDataCallBack!,
-        errorCallBack: errorCallBack!);
+        params: params,
+        onDataCallBack: onDataCallBack,
+        errorCallBack: errorCallBack);
   }
 
   void postReq(String url,
@@ -24,10 +24,10 @@ class BaseNetwork {
       Function? errorCallBack}) async {
     requestData(RequestType.Post,
         url: url,
-        params: params!,
-        fd: fd!,
-        onDataCallBack: onDataCallBack!,
-        errorCallBack: errorCallBack!);
+        params: params,
+        fd: fd,
+        onDataCallBack: onDataCallBack,
+        errorCallBack: errorCallBack);
   }
 
   void requestData(RequestType rt,
@@ -40,9 +40,10 @@ class BaseNetwork {
     options.connectTimeout = 10000;
     options.receiveTimeout = 10000;
 
-    String token = await SharedPref.getData(key: SharedPref.token);
+    //String token = await SharedPref.getData(key: SharedPref.token);
     options.headers = {
-      'Authorization': token,
+      'Authorization':
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5NTIzOTUxLCJleHAiOjE2NjIxMTU5NTF9.F5wrjbK_uyVnKz1zgUb8DZ0b-IWujQtQby61FzOssec",
     };
 
     Dio dio = new Dio(options);
