@@ -1,8 +1,9 @@
-import 'dart:ui';
-
-import 'package:clay_containers/widgets/clay_container.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:space_app/helpers/response_ob.dart';
+import 'package:space_app/model/user_model.dart';
+
+import 'profile_bloc.dart';
 
 class ProifilePage extends StatefulWidget {
   const ProifilePage({Key? key}) : super(key: key);
@@ -12,6 +13,14 @@ class ProifilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProifilePage> {
+  final _bloc = ProfileBloc();
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc.getProfile();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

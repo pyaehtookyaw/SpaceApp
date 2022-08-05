@@ -11,6 +11,8 @@
 
 const BASE_URL = 'https://space-fm.herokuapp.com/';
 const API_URL = BASE_URL + "api/";
+const TOKEN =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5NTIzOTUxLCJleHAiOjE2NjIxMTU5NTF9.F5wrjbK_uyVnKz1zgUb8DZ0b-IWujQtQby61FzOssec";
 // const LOGIN_URL = API_URL + "login";
 // const REGISTER_URL = API_URL + "register";
 // const POST_URL = API_URL + "public/post";

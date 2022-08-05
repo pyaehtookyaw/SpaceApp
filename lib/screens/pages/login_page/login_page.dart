@@ -1,6 +1,7 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:space_app/helpers/response_ob.dart';
 import 'package:space_app/screens/pages/main_page/main_page.dart';
+import 'package:space_app/screens/pages/register_page/register_page.dart';
 import 'package:space_app/utils/app_utils.dart';
 
 import 'login_bloc.dart';
@@ -13,7 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var emailTec = TextEditingController();
+  var usernameTec = TextEditingController();
   var passwordTec = TextEditingController();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -94,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
 //                    color: Colors.grey
               ),
               child: TextField(
-                controller: emailTec,
+                controller: usernameTec,
                 decoration: const InputDecoration(
                     hintText: "Enter Email",
                     border: InputBorder.none,
@@ -122,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 30),
             AppUtils.loadingWidget(
-              stream: null, // _bloc.loginStream(),
+              stream: _bloc.loginStream(),
               widget: NeumorphicButton(
                 onPressed: checkLogin,
                 child: Center(
@@ -146,10 +147,10 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 20),
             NeumorphicButton(
               onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return MainPage();
-                }));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterPage()),
+                );
               },
               child: Center(
                 child: Text(
@@ -178,13 +179,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   checkLogin() {
-    if (emailTec.text.isEmpty || passwordTec.text.isEmpty) {
+    if (usernameTec.text.isEmpty || passwordTec.text.isEmpty) {
       AppUtils.showSnackBar("Fill Data", _scaffoldKey.currentState);
       return;
     }
 
     Map<String, String> map = {
-      'username': emailTec.text,
+      'username': usernameTec.text,
       'password': passwordTec.text,
     };
 

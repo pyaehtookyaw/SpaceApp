@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:space_app/helpers/shared_pref.dart';
+import 'package:space_app/utils/app_constants.dart';
 
 import 'response_ob.dart';
 
@@ -42,8 +43,8 @@ class BaseNetwork {
 
     //String token = await SharedPref.getData(key: SharedPref.token);
     options.headers = {
-      'Authorization':
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5NTIzOTUxLCJleHAiOjE2NjIxMTU5NTF9.F5wrjbK_uyVnKz1zgUb8DZ0b-IWujQtQby61FzOssec",
+      "Content-Type": "application/json",
+      'Authorization': "Bearer $TOKEN",
     };
 
     Dio dio = new Dio(options);
@@ -75,16 +76,16 @@ class BaseNetwork {
 
       if (statusCode == 200) {
         //data
-        if (response.data['success'] == true) {
-          respOb.data = response.data;
-          respOb.message = MsgState.data;
-          onDataCallBack!(respOb);
-        } else {
-          respOb.data = response.data['result'];
-          respOb.message = MsgState.error;
-          respOb.errState = ErrState.userErr;
-          errorCallBack!(respOb);
-        }
+        // if (response.data['success'] == true) {
+        respOb.data = response.data;
+        respOb.message = MsgState.data;
+        onDataCallBack!(respOb);
+        // } else {
+        //   respOb.data = response.data['result'];
+        //   respOb.message = MsgState.error;
+        //   respOb.errState = ErrState.userErr;
+        //   errorCallBack!(respOb);
+        // }
       } else {
         //error
         respOb.errState = ErrState.serverError;

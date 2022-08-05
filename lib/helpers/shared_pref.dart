@@ -1,8 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
-  static const token = "token";
-  static const category = "category";
+  static const session = "session";
   static const profile = 'profile';
 
   static Future<bool> setData({String? key, String? value}) async {
