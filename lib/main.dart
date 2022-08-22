@@ -1,7 +1,13 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:space_app/screens/pages/splash_page/splash_page.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey =
+      'pk_test_51LUjOKJBBz0ivrs4ozOI3E493A8zOgf3ZHfs3eHOv1iE1MJtJt7FeOsWjUteBfhyNVSowHH6H3P3Z4cS94wFETU600zpQdcOCC';
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

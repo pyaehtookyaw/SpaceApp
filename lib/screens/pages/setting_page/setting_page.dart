@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:space_app/helpers/response_ob.dart';
 import 'package:space_app/model/user_model.dart';
 import 'package:space_app/screens/pages/profile_page/profile_bloc.dart';
@@ -192,10 +193,11 @@ class _SettingPageState extends State<SettingPage> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return ProifilePage();
-                  })),
+                  // onTap: () => Navigator.of(context)
+                  //     .push(MaterialPageRoute(builder: (context) {
+                  //   return ProifilePage();
+                  // })),
+                  onTap: () => startPayment(),
                   child: Neumorphic(
                     padding: EdgeInsets.all(10),
                     child: Row(
@@ -221,5 +223,15 @@ class _SettingPageState extends State<SettingPage> {
             )),
       ),
     );
+  }
+
+  Future<void> startPayment() async {
+    print("click");
+    await Stripe.instance.initPaymentSheet(
+        paymentSheetParameters: SetupPaymentSheetParameters(
+            setupIntentClientSecret:
+                "sk_test_51LUjOKJBBz0ivrs4BiZZTlFtf21k0hJuG8n8H8sh7vOaOJgcemzBId8GBJtRsRgqB4IApBgqaUoPUKwzgldETIb500E2BW8zit",
+            style: ThemeMode.dark,
+            merchantDisplayName: "Space App"));
   }
 }
