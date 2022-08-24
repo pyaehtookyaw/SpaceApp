@@ -194,7 +194,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    // _bloc.dispose();
+    _bloc.dispose();
     super.dispose();
   }
 }
